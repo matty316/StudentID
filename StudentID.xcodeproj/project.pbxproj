@@ -12,6 +12,9 @@
 		C94E10CD1CA0BCE200D9681B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94E10CB1CA0BCE200D9681B /* Main.storyboard */; };
 		C94E10CF1CA0BCE200D9681B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94E10CE1CA0BCE200D9681B /* Assets.xcassets */; };
 		C94E10D21CA0BCE200D9681B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94E10D01CA0BCE200D9681B /* LaunchScreen.storyboard */; };
+		C94E10DA1CA0BD1000D9681B /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94E10D91CA0BD1000D9681B /* Barcode.swift */; };
+		C94E10DE1CA0C43300D9681B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94E10DD1CA0C43300D9681B /* ScannerViewController.swift */; };
+		C94E10E01CA0C6C900D9681B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E10DF1CA0C6C900D9681B /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		C94E10CE1CA0BCE200D9681B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C94E10D11CA0BCE200D9681B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C94E10D31CA0BCE200D9681B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C94E10D91CA0BD1000D9681B /* Barcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Barcode.swift; sourceTree = "<group>"; };
+		C94E10DD1CA0C43300D9681B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		C94E10DF1CA0C6C900D9681B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94E10E01CA0C6C900D9681B /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +45,7 @@
 		C94E10BB1CA0BCE200D9681B = {
 			isa = PBXGroup;
 			children = (
+				C94E10DF1CA0C6C900D9681B /* AVFoundation.framework */,
 				C94E10C61CA0BCE200D9681B /* StudentID */,
 				C94E10C51CA0BCE200D9681B /* Products */,
 			);
@@ -60,6 +68,8 @@
 				C94E10CE1CA0BCE200D9681B /* Assets.xcassets */,
 				C94E10D01CA0BCE200D9681B /* LaunchScreen.storyboard */,
 				C94E10D31CA0BCE200D9681B /* Info.plist */,
+				C94E10D91CA0BD1000D9681B /* Barcode.swift */,
+				C94E10DD1CA0C43300D9681B /* ScannerViewController.swift */,
 			);
 			path = StudentID;
 			sourceTree = "<group>";
@@ -96,6 +106,7 @@
 				TargetAttributes = {
 					C94E10C31CA0BCE200D9681B = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = SN2649LZ84;
 					};
 				};
 			};
@@ -137,6 +148,8 @@
 			files = (
 				C94E10CA1CA0BCE200D9681B /* ViewController.swift in Sources */,
 				C94E10C81CA0BCE200D9681B /* AppDelegate.swift in Sources */,
+				C94E10DA1CA0BD1000D9681B /* Barcode.swift in Sources */,
+				C94E10DE1CA0C43300D9681B /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +260,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = StudentID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wpcp.StudentID;
@@ -258,6 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = StudentID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wpcp.StudentID;
