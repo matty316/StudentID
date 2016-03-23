@@ -11,14 +11,11 @@ import AVFoundation
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
-    var captureSession: AVCaptureSession!
-    var previewLayer: AVCaptureVideoPreviewLayer!
+    var captureSession = AVCaptureSession()
+    var previewLayer: AVCaptureVideoPreviewLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.blackColor()
-        captureSession = AVCaptureSession()
         
         let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         let videoInput: AVCaptureDeviceInput
@@ -32,8 +29,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         if (captureSession.canAddInput(videoInput)) {
             captureSession.addInput(videoInput)
         } else {
-            failed();
-            return;
+            failed()
+            return
         }
         
         let metadataOutput = AVCaptureMetadataOutput()
@@ -48,34 +45,33 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             return
         }
         
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
-        previewLayer.frame = view.layer.bounds;
-        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        view.layer.addSublayer(previewLayer);
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer?.frame = view.layer.bounds
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        view.layer.addSublayer(previewLayer!)
         
-        captureSession.startRunning();
+        captureSession.startRunning()
     }
     
     func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
-        captureSession = nil
+        let alert = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (captureSession?.running == false) {
-            captureSession.startRunning();
+        if (captureSession.running == false) {
+            captureSession.startRunning()
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if (captureSession?.running == true) {
-            captureSession.stopRunning();
+        if (captureSession.running == true) {
+            captureSession.stopRunning()
         }
     }
     
@@ -83,10 +79,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         captureSession.stopRunning()
         
         if let metadataObject = metadataObjects.first {
-            let readableObject = metadataObject as! AVMetadataMachineReadableCodeObject;
+            let readableObject = metadataObject as! AVMetadataMachineReadableCodeObject
             
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            foundCode(readableObject.stringValue);
+            foundCode(readableObject.stringValue)
         }
         
         dismissViewControllerAnimated(true, completion: nil)
